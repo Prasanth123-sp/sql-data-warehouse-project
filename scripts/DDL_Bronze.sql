@@ -1,4 +1,7 @@
 --create DDL for CRM
+if OBJECT_ID ('bronze.crm_cust_info' , 'U') IS not null 
+	drop table bronze.crm_cust_info;
+
 create table bronze.crm_cust_info(
 	cst_id int,
 	cst_key varchar(50),
@@ -10,6 +13,8 @@ create table bronze.crm_cust_info(
 );
 go
 
+if OBJECT_ID ('bronze.crm_prd_info' , 'U') IS not null 
+	drop table bronze.crm_prd_info;
 
 create table bronze.crm_prd_info(
 	prd_id int,
@@ -22,6 +27,9 @@ create table bronze.crm_prd_info(
 );
 go
 
+
+if OBJECT_ID ('bronze.crm_sales_details' , 'U') IS not null 
+	drop table bronze.crm_sales_details;
 
 create table bronze.crm_sales_details(
 	sls_ord_num varchar(50),
@@ -37,9 +45,12 @@ create table bronze.crm_sales_details(
 go
 
 
-  
+
 -- create DDL for ERP
-create table bronze.erm_cust_az12(
+if OBJECT_ID ('bronze.erp_cust_az12' , 'U') IS not null 
+	drop table bronze.erp_cust_az12;
+
+create table bronze.erp_cust_az12(
 	CID varchar(50),
 	BDATE date,
 	GEN varchar(50)
@@ -48,15 +59,20 @@ go
 
 
 
-create table bronze.erm_loc_a101(
+if OBJECT_ID ('bronze.erp_loc_a101' , 'U') IS not null 
+	drop table bronze.erp_loc_a101;
+
+create table bronze.erp_loc_a101(
 	CID varchar(50),
 	CNTRY varchar(50)
 );
 go
 
 
+if OBJECT_ID ('bronze.erp_px_cat_g1v2' , 'U') IS not null 
+	drop table bronze.erp_px_cat_g1v2;
 
-create table bronze.erm_px_cat_g1v2(
+create table bronze.erp_px_cat_g1v2(
 	ID varchar(50),
 	CAT varchar(50),
 	SUBCAT varchar(50),
