@@ -1,3 +1,13 @@
+/*
+===============================================================================
+DDL Script: Create Bronze Tables
+===============================================================================
+Script Purpose:
+    This script creates tables in the 'bronze' schema, dropping existing tables 
+    if they already exist.
+	  Run this script to re-define the DDL structure of 'bronze' Tables
+===============================================================================
+*/
 --create DDL for CRM
 if OBJECT_ID ('bronze.crm_cust_info' , 'U') IS not null 
 	drop table bronze.crm_cust_info;
@@ -69,6 +79,16 @@ create table bronze.erp_loc_a101(
 go
 
 
+if OBJECT_ID ('bronze.erp_px_cat_g1v2' , 'U') IS not null 
+	drop table bronze.erp_px_cat_g1v2;
+
+create table bronze.erp_px_cat_g1v2(
+	ID varchar(50),
+	CAT varchar(50),
+	SUBCAT varchar(50),
+	MAINTENANCE varchar(50)
+);
+go
 if OBJECT_ID ('bronze.erp_px_cat_g1v2' , 'U') IS not null 
 	drop table bronze.erp_px_cat_g1v2;
 
